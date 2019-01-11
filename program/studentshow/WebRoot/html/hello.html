@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta charset="UTF-8">
+</head>
+ <script type="text/javascript" src="../javascript/jquery-3.2.1.js"></script>
+
+<body>
+<div id="myDiv">students list</div>
+<input id="btn" type="button" value="show"/>
+<input id="btn1" type="button" value="add"/>
+</body>
+<script>
+	$("#btn").on("click", function(){
+		var data = {"name":"小红","age":12}; 
+	    
+	 $.ajax({
+	        type: "post",
+	        //data:{name:"小明",age:12}, 
+	        dataType: 'json', 
+	        contentType: "application/json;charset=utf-8",
+	        url: "http://localhost:8080/studentshow/show",
+	        success: function(data){
+	        	var array1=eval(data);
+	        	console.log(array1);
+	        	
+	            $("#myDiv").html(array1[0]);
+	        },
+	        error: function() {
+	            alert("error");
+	          }
+	    });
+	    
+	});
+	
+	$("#btn1").on("click", function(){
+	    
+		var data = {
+				
+				"id": "131220022",
+				"name": "zl",
+				"sex": 1,
+				"birthday": "1988-01-01"
+			}
+		console.log(data);
+		 $.ajax({
+		        type: "post",
+		        data: JSON.stringify(data), 
+		        contentType: "application/json;charset=utf-8",
+		        dataType: 'json', 
+		        url: "http://localhost:8080/studentshow/add",
+		        success:function(data,status){
+                    if(status == "success"){
+                    	var array1=(data.result);
+        	        	console.log(data);
+        	        	
+        	            $("#myDiv").html(array1);
+                        
+                    }
+		        },
+		        error: function() {
+		            alert("error");
+		          }
+		    });
+		    
+		});
+</script>
+</html>
