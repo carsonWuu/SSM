@@ -43,4 +43,9 @@ public class StudentBeanServiceImpl  implements StudentBeanService{
 		return studentBeanMapper.update(StudentBean);
 	};
 
+	@Override
+	public List<StudentBean> get(StudentBean studentBean) {
+		// TODO Auto-generated method stub
+		return studentBeanMapper.get(studentBean);
+	}
 }

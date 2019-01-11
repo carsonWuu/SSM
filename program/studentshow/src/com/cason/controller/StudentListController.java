@@ -33,7 +33,15 @@ public class StudentListController {
 		return gson.toJson(list);
 	}
 	
-
+	@RequestMapping(value="/get",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public @ResponseBody String getstudentlist(@RequestBody StudentBean stu) {
+		List<StudentBean> list = studentBeanServiceImpl.get(stu);
+//		Map<String,Object> map = new HashMap();
+	
+		System.out.println(list);
+		return gson.toJson(list);
+	}
+	
 	@RequestMapping(value="/add",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public @ResponseBody String addStudent(@RequestBody StudentBean stu) {
 		

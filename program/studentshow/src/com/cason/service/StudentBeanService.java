@@ -14,4 +14,6 @@ public interface StudentBeanService {
 	
 	public List<StudentBean> list();
 	
+	public List<StudentBean> get(StudentBean studentBean);
+	
 }

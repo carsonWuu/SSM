@@ -14,7 +14,7 @@ public interface StudentBeanMapper {
     public int delete(StudentBean StudentBean);  
        
       
-    //public StudentBean get(int id);  
+    public List<StudentBean> get(StudentBean StudentBean);  
      
       
     public int update(StudentBean StudentBean);   

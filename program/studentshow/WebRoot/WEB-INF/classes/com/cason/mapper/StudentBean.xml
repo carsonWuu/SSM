@@ -10,11 +10,11 @@
 	    <delete id="delete" parameterType="StudentBean" >
 	        delete from student where id= #{id}   
 	    </delete>
-	   <!--  
-	    <select id="get" parameterType="_int" resultType="Category">
-	        select * from   category_  where id= #{id}    
+	   
+	    <select id="get" parameterType="StudentBean" resultType="StudentBean">
+	        select * from   student  where id= #{id}    
 	    </select>
-		 -->
+		 
 	    <update id="update" parameterType="StudentBean" >
 	        update student set name=#{name}, sex=#{sex} ,birthday=#{birthday} where id=#{id}    
 	    </update>

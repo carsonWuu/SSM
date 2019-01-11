@@ -12,6 +12,7 @@
 <input id="btn2" type="button" value="add"/>
 <input id="btn3" type="button" value="update"/>
 <input id="btn4" type="button" value="delete"/>
+<input id="btn5" type="button" value="get"/>
 <table id = "tab">
 
 </table>
@@ -134,6 +135,31 @@
 	    });
 	    
 	});
+	
+	$("#btn5").on("click", function(){
+		var data = {"id": "131220022"}; 
+	    
+	 $.ajax({
+	        type: "post",
+	        data: JSON.stringify(data), 
+	        dataType: 'json', 
+	        contentType: "application/json;charset=utf-8",
+	        url: "http://192.168.1.101:8080/studentshow/get",
+	        success: function(data){
+	        	
+	        	if(null !=data && "" !=data) {
+		        	data= JSON.parse(data);
+		        	console.log(data);
+		        	
+		        	showlist(data);
+	        	}
+	        },
+	        error: function() {
+	            alert("error");
+	          }
+	    });
+	    
+	});
 
 	function showlist(data) {
 		$("#tab").html("<tr><th>" + "ID" + "</th><th>" + "Name" + "</th><th>" + "Sex" + "</th><th>" + "Birthday" +"</th><tr>" )
@@ -142,6 +168,15 @@
 			 str = "<tr><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>" + data[i].sex + "</td><td>" + data[i].birthday+"</td><tr>" ;
 			 $("#tab").append(str);
 		}
+	}
+	
+	function showStudentBean(data) {
+		$("#tab").html("<tr><th>" + "ID" + "</th><th>" + "Name" + "</th><th>" + "Sex" + "</th><th>" + "Birthday" +"</th><tr>" )
+		var str = "";
+		
+			 str = "<tr><td>" + data.id + "</td><td>" + data.name + "</td><td>" + data.sex + "</td><td>" + data.birthday+"</td><tr>" ;
+			 $("#tab").append(str);
+		
 	}
 </script>
 </html>
