@@ -11,13 +11,13 @@ public interface StudentBeanMapper {
     public int add(StudentBean StudentBean);  
        
       
-//    public void delete(int id);  
-//       
-//      
-//    public StudentBean get(int id);  
-//     
-//      
-//    public int update(StudentBean StudentBean);   
+    public int delete(StudentBean StudentBean);  
+       
+      
+    //public StudentBean get(int id);  
+     
+      
+    public int update(StudentBean StudentBean);   
        
       
     public List<StudentBean> list();

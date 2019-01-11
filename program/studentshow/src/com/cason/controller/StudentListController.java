@@ -46,4 +46,30 @@ public class StudentListController {
 		
 		return gson.toJson(map);
 	}
+	
+	@RequestMapping(value="/update",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public @ResponseBody String updateStudent(@RequestBody StudentBean stu) {
+		
+		System.out.println(stu);
+		int n= studentBeanServiceImpl.update(stu);
+		Map<String,Object> map = new HashMap();
+		map.put("result",n);
+//		List<StudentBean> list = studentBeanServiceImpl.list();
+		
+		
+		return gson.toJson(map);
+	}
+	
+	@RequestMapping(value="/delete",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public @ResponseBody String deleteStudent(@RequestBody StudentBean stu) {
+		
+		System.out.println(stu);
+		int n= studentBeanServiceImpl.delete(stu);
+		Map<String,Object> map = new HashMap();
+		map.put("result",n);
+//		List<StudentBean> list = studentBeanServiceImpl.list();
+		
+		
+		return gson.toJson(map);
+	}
 }

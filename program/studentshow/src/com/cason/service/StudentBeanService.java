@@ -8,6 +8,10 @@ public interface StudentBeanService {
 	
 	public int add(StudentBean StudentBean);  
 	
+	public int delete(StudentBean StudentBean);
+	
+	public int update(StudentBean StudentBean);  
+	
 	public List<StudentBean> list();
 	
 }

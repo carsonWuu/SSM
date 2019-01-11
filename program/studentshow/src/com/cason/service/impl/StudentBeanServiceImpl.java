@@ -27,6 +27,20 @@ public class StudentBeanServiceImpl  implements StudentBeanService{
 	public int add(StudentBean StudentBean) {
 		// TODO Auto-generated method stub
 		return studentBeanMapper.add(StudentBean);
+	}
+
+
+	@Override
+	public int delete(StudentBean StudentBean) {
+		// TODO Auto-generated method stub
+		return studentBeanMapper.delete(StudentBean);
+	}
+
+
+	@Override
+	public int update(StudentBean StudentBean) {
+		// TODO Auto-generated method stub
+		return studentBeanMapper.update(StudentBean);
 	};
 
 }
