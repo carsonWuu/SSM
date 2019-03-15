@@ -1,0 +1,4 @@
+mybatis:
+  type-aliases-package: practice.mybatis.bean
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
